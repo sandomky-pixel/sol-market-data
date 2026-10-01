@@ -1,54 +1,68 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T03:00:11.863Z",
+  "updated_at": "2026-10-01T03:10:10.943Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790823611863,
-    "timestamp_iso": "2026-10-01T03:00:11.863Z",
-    "price": 118.1,
+    "timestamp": 1790824210943,
+    "timestamp_iso": "2026-10-01T03:10:10.943Z",
+    "price": 118,
     "price_source": "Coinbase SOL-USD Fallback",
     "mark_price": null,
+    "mark_price_source": null,
     "index_price": null,
+    "index_price_source": null,
     "funding_rate": null,
+    "funding_source": null,
     "next_funding_time": null,
     "open_interest": null,
+    "oi_source": null,
     "volume_24h": null,
     "turnover_24h": null,
     "price_change_24h_pct": null,
     "high_24h": null,
     "low_24h": null,
-    "source": "Coinbase SOL-USD Fallback",
+    "market_24h_source": null,
+    "data_quality": {
+      "important_fields": 5,
+      "valid_fields": 1,
+      "completeness": 0.2,
+      "completeness_pct": 20
+    },
     "diagnostics": [
       {
         "source": "Bybit ticker",
         "ok": false,
-        "status": 403,
-        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "error": "HTTP 403: https://api.bybit.com/v5/market/tickers?category=linear&symbol=SOLUSDT :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
         "source": "Bybit funding",
         "ok": false,
-        "status": 403,
-        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "error": "HTTP 403: https://api.bybit.com/v5/market/funding/history?category=linear&symbol=SOLUSDT&limit=1 :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
         "source": "Bybit OI",
         "ok": false,
-        "status": 403,
-        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "error": "HTTP 403: https://api.bybit.com/v5/market/open-interest?category=linear&symbol=SOLUSDT&intervalTime=5min&limit=1 :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
-        "source": "Bybit spot fallback",
+        "source": "Binance premiumIndex",
         "ok": false,
-        "status": 403,
-        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/premiumIndex?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
       },
       {
-        "source": "Coinbase price fallback",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "source": "Binance OI",
+        "ok": false,
+        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/openInterest?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+      },
+      {
+        "source": "Binance ticker",
+        "ok": false,
+        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/ticker/24hr?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+      },
+      {
+        "source": "Coinbase SOL-USD",
+        "ok": true
       }
     ]
   }
