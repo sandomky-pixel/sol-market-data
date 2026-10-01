@@ -1,27 +1,27 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T04:50:12.769Z",
+  "updated_at": "2026-10-01T04:56:08.621Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790830212769,
-    "timestamp_iso": "2026-10-01T04:50:12.769Z",
-    "price": 119.12,
+    "timestamp": 1790830568621,
+    "timestamp_iso": "2026-10-01T04:56:08.621Z",
+    "price": 118.95,
     "price_source": "OKX",
     "price_is_proxy": false,
-    "mark_price": 119.1,
+    "mark_price": 118.94,
     "mark_price_source": "OKX",
-    "index_price": 119.17,
+    "index_price": 119,
     "index_price_source": "OKX",
-    "funding_rate": 0.0000708851152698,
+    "funding_rate": 0.0000739049379368,
     "funding_source": "OKX",
     "next_funding_time": 1790870400000,
-    "open_interest": 2926692.9200000023,
+    "open_interest": 2904513.4400000023,
     "oi_source": "OKX",
-    "open_interest_contracts": 2926692.9200000023,
-    "volume_24h": 10857124.99,
-    "turnover_24h": 10857124.99,
-    "price_change_24h_pct": 0.151336808474867,
+    "open_interest_contracts": 2904513.4400000023,
+    "volume_24h": 10934309.27,
+    "turnover_24h": 10934309.27,
+    "price_change_24h_pct": 0.1515534225814657,
     "high_24h": 122.77,
     "low_24h": 116.93,
     "market_24h_source": "OKX",
@@ -101,9 +101,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
       }
     ]
   }
