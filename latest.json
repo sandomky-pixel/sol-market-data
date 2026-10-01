@@ -1,33 +1,34 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T03:25:11.250Z",
+  "updated_at": "2026-10-01T04:10:13.175Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790825111250,
-    "timestamp_iso": "2026-10-01T03:25:11.250Z",
-    "price": 117.9,
-    "price_source": "Coinbase SOL-USD Fallback",
-    "mark_price": null,
-    "mark_price_source": null,
-    "index_price": null,
-    "index_price_source": null,
-    "funding_rate": null,
-    "funding_source": null,
-    "next_funding_time": null,
-    "open_interest": null,
-    "oi_source": null,
-    "volume_24h": null,
+    "timestamp": 1790827813175,
+    "timestamp_iso": "2026-10-01T04:10:13.175Z",
+    "price": 118.67,
+    "price_source": "OKX SOL-USDT-SWAP",
+    "mark_price": 118.66,
+    "mark_price_source": "OKX",
+    "index_price": 118.72,
+    "index_price_source": "OKX",
+    "funding_rate": 0.0000595290724705,
+    "funding_source": "OKX",
+    "next_funding_time": 1790870400000,
+    "open_interest": 2931486.7500000023,
+    "open_interest_contracts": 2931486.7500000023,
+    "oi_source": "OKX oiCcy",
+    "volume_24h": 10806655.82,
     "turnover_24h": null,
-    "price_change_24h_pct": null,
-    "high_24h": null,
-    "low_24h": null,
-    "market_24h_source": null,
+    "price_change_24h_pct": -0.5030602833906215,
+    "high_24h": 122.77,
+    "low_24h": 116.93,
+    "market_24h_source": "OKX",
     "data_quality": {
       "important_fields": 5,
-      "valid_fields": 1,
-      "completeness": 0.2,
-      "completeness_pct": 20
+      "valid_fields": 5,
+      "completeness": 1,
+      "completeness_pct": 100
     },
     "diagnostics": [
       {
@@ -65,6 +66,36 @@
         "ok": false,
         "status": 403,
         "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+      },
+      {
+        "source": "OKX ticker",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
+        "source": "OKX mark",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
+        "source": "OKX funding",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
+        "source": "OKX OI",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
+        "source": "OKX index",
+        "ok": true,
+        "status": 200,
+        "error": null
       },
       {
         "source": "Coinbase SOL-USD",
