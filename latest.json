@@ -1,11 +1,11 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T00:51:17.199Z",
+  "updated_at": "2026-10-01T00:56:11.076Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790815877199,
-    "timestamp_iso": "2026-10-01T00:51:17.199Z",
+    "timestamp": 1790816171076,
+    "timestamp_iso": "2026-10-01T00:56:11.076Z",
     "price": null,
     "mark_price": null,
     "index_price": null,
