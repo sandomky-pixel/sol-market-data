@@ -1,10 +1,10 @@
 {
   "ok": true,
   "mode": "github_history_1h",
-  "updated_at": "2026-10-01T05:01:21.631Z",
+  "updated_at": "2026-10-01T05:06:11.199Z",
   "interval_minutes": 5,
   "hours": 1,
-  "count": 11,
+  "count": 12,
   "data": [
     {
       "id": 22,
@@ -302,6 +302,33 @@
       "price_is_proxy": 1,
       "price_proxy_type": null,
       "open_interest_contracts": 2902129.8400000017
+    },
+    {
+      "id": 33,
+      "timestamp": 1790831171199,
+      "timestamp_iso": "2026-10-01T05:06:11.199Z",
+      "symbol": "SOLUSDT",
+      "price": 119.09,
+      "mark_price": 119.09,
+      "index_price": 119.16,
+      "funding_rate": 0.0000781763086024,
+      "next_funding_time": 1790870400000,
+      "open_interest": 2899564.790000002,
+      "volume_24h": null,
+      "turnover_24h": null,
+      "price_change_24h_pct": null,
+      "high_24h": null,
+      "low_24h": null,
+      "source": null,
+      "price_source": "OKX mark price proxy",
+      "mark_price_source": "OKX",
+      "index_price_source": "OKX",
+      "funding_source": "OKX",
+      "oi_source": "OKX",
+      "market_24h_source": null,
+      "price_is_proxy": 1,
+      "price_proxy_type": null,
+      "open_interest_contracts": 2899564.790000002
     }
   ]
 }
