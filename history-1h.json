@@ -1,10 +1,10 @@
 {
   "ok": true,
   "mode": "github_history_1h",
-  "updated_at": "2026-10-01T04:15:12.444Z",
+  "updated_at": "2026-10-01T04:20:13.249Z",
   "interval_minutes": 5,
   "hours": 1,
-  "count": 3,
+  "count": 4,
   "data": [
     {
       "id": 21,
@@ -28,7 +28,10 @@
       "index_price_source": null,
       "funding_source": null,
       "oi_source": null,
-      "market_24h_source": null
+      "market_24h_source": null,
+      "price_is_proxy": 0,
+      "price_proxy_type": null,
+      "open_interest_contracts": null
     },
     {
       "id": 22,
@@ -52,7 +55,10 @@
       "index_price_source": "OKX",
       "funding_source": "OKX",
       "oi_source": "OKX oiCcy",
-      "market_24h_source": "OKX"
+      "market_24h_source": "OKX",
+      "price_is_proxy": 0,
+      "price_proxy_type": null,
+      "open_interest_contracts": null
     },
     {
       "id": 23,
@@ -76,7 +82,37 @@
       "index_price_source": "OKX",
       "funding_source": "OKX",
       "oi_source": "OKX oiCcy",
-      "market_24h_source": "OKX"
+      "market_24h_source": "OKX",
+      "price_is_proxy": 0,
+      "price_proxy_type": null,
+      "open_interest_contracts": null
+    },
+    {
+      "id": 24,
+      "timestamp": 1790828413249,
+      "timestamp_iso": "2026-10-01T04:20:13.249Z",
+      "symbol": "SOLUSDT",
+      "price": 118.37,
+      "mark_price": 118.37,
+      "index_price": 118.44,
+      "funding_rate": 0.0000626610334598,
+      "next_funding_time": 1790870400000,
+      "open_interest": 2928532.090000002,
+      "volume_24h": 10798720.17,
+      "turnover_24h": 10798720.17,
+      "price_change_24h_pct": -0.8294235924932933,
+      "high_24h": 122.77,
+      "low_24h": 116.93,
+      "source": null,
+      "price_source": "OKX",
+      "mark_price_source": "OKX",
+      "index_price_source": "OKX",
+      "funding_source": "OKX",
+      "oi_source": "OKX oi",
+      "market_24h_source": "OKX",
+      "price_is_proxy": 0,
+      "price_proxy_type": null,
+      "open_interest_contracts": 2928532.090000002
     }
   ]
 }
