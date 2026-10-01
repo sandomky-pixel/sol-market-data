@@ -1,12 +1,13 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T01:26:07.505Z",
+  "updated_at": "2026-10-01T02:36:10.393Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790817967505,
-    "timestamp_iso": "2026-10-01T01:26:07.505Z",
-    "price": null,
+    "timestamp": 1790822170393,
+    "timestamp_iso": "2026-10-01T02:36:10.393Z",
+    "price": 117.99,
+    "price_source": "Coinbase SOL-USD Fallback",
     "mark_price": null,
     "index_price": null,
     "funding_rate": null,
@@ -17,6 +18,38 @@
     "price_change_24h_pct": null,
     "high_24h": null,
     "low_24h": null,
-    "source": "Bybit"
+    "source": "Coinbase SOL-USD Fallback",
+    "diagnostics": [
+      {
+        "source": "Bybit ticker",
+        "ok": false,
+        "status": 403,
+        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+      },
+      {
+        "source": "Bybit funding",
+        "ok": false,
+        "status": 403,
+        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+      },
+      {
+        "source": "Bybit OI",
+        "ok": false,
+        "status": 403,
+        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+      },
+      {
+        "source": "Bybit spot fallback",
+        "ok": false,
+        "status": 403,
+        "error": "{\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+      },
+      {
+        "source": "Coinbase price fallback",
+        "ok": true,
+        "status": 200,
+        "error": null
+      }
+    ]
   }
 }
