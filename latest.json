@@ -1,12 +1,12 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T02:55:10.758Z",
+  "updated_at": "2026-10-01T03:00:11.863Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790823310758,
-    "timestamp_iso": "2026-10-01T02:55:10.758Z",
-    "price": 118.08,
+    "timestamp": 1790823611863,
+    "timestamp_iso": "2026-10-01T03:00:11.863Z",
+    "price": 118.1,
     "price_source": "Coinbase SOL-USD Fallback",
     "mark_price": null,
     "index_price": null,
