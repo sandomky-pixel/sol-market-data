@@ -1,26 +1,28 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T04:15:12.444Z",
+  "updated_at": "2026-10-01T04:20:13.249Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790828112444,
-    "timestamp_iso": "2026-10-01T04:15:12.444Z",
-    "price": 118.55,
-    "price_source": "OKX SOL-USDT-SWAP",
-    "mark_price": 118.54,
+    "timestamp": 1790828413249,
+    "timestamp_iso": "2026-10-01T04:20:13.249Z",
+    "price": 118.37,
+    "price_source": "OKX",
+    "price_is_proxy": false,
+    "price_proxy_type": null,
+    "mark_price": 118.37,
     "mark_price_source": "OKX",
-    "index_price": 118.6,
+    "index_price": 118.44,
     "index_price_source": "OKX",
-    "funding_rate": 0.0000620062683757,
+    "funding_rate": 0.0000626610334598,
     "funding_source": "OKX",
     "next_funding_time": 1790870400000,
-    "open_interest": 2929639.310000002,
-    "open_interest_contracts": 2929639.310000002,
-    "oi_source": "OKX oiCcy",
-    "volume_24h": 10811457.08,
-    "turnover_24h": null,
-    "price_change_24h_pct": -0.7783729494476119,
+    "open_interest": 2928532.090000002,
+    "open_interest_contracts": 2928532.090000002,
+    "oi_source": "OKX oi",
+    "volume_24h": 10798720.17,
+    "turnover_24h": 10798720.17,
+    "price_change_24h_pct": -0.8294235924932933,
     "high_24h": 122.77,
     "low_24h": 116.93,
     "market_24h_source": "OKX",
@@ -28,7 +30,9 @@
       "important_fields": 5,
       "valid_fields": 5,
       "completeness": 1,
-      "completeness_pct": 100
+      "completeness_pct": 100,
+      "actual_price_available": true,
+      "price_proxy_used": false
     },
     "diagnostics": [
       {
@@ -53,55 +57,60 @@
         "source": "Binance premiumIndex",
         "ok": false,
         "status": 403,
-        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could not be satisfied.</H2>\n<HR noshade size=\"1px\">\nReq"
       },
       {
         "source": "Binance OI",
         "ok": false,
         "status": 403,
-        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could not be satisfied.</H2>\n<HR noshade size=\"1px\">\nReq"
       },
       {
         "source": "Binance ticker",
         "ok": false,
         "status": 403,
-        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could not be satisfied.</H2>\n<HR noshade size=\"1px\">\nReq"
       },
       {
         "source": "OKX ticker",
         "ok": true,
         "status": 200,
+        "attempt": 1,
         "error": null
       },
       {
         "source": "OKX mark",
         "ok": true,
         "status": 200,
+        "attempt": 1,
         "error": null
       },
       {
         "source": "OKX funding",
         "ok": true,
         "status": 200,
+        "attempt": 1,
         "error": null
       },
       {
         "source": "OKX OI",
         "ok": true,
         "status": 200,
+        "attempt": 1,
         "error": null
       },
       {
         "source": "OKX index",
         "ok": true,
         "status": 200,
+        "attempt": 1,
         "error": null
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
+        "ok": true,
+        "status": 200,
+        "error": null
       }
     ]
   }
