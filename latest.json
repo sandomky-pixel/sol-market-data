@@ -1,34 +1,34 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T21:56:13.149Z",
+  "updated_at": "2026-10-01T22:01:30.795Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790891773149,
-    "timestamp_iso": "2026-10-01T21:56:13.149Z",
-    "price": 117.53,
-    "price_source": "OKX",
-    "price_is_proxy": false,
-    "price_proxy_type": null,
-    "mark_price": 117.53,
+    "timestamp": 1790892090795,
+    "timestamp_iso": "2026-10-01T22:01:30.795Z",
+    "price": 117.93,
+    "price_source": "OKX mark price proxy",
+    "price_is_proxy": true,
+    "price_proxy_type": "mark_price",
+    "mark_price": 117.93,
     "mark_price_source": "OKX",
-    "index_price": 117.63,
+    "index_price": 118.02,
     "index_price_source": "OKX",
-    "funding_rate": 0.0000319897573807,
+    "funding_rate": 0.000028395084332,
     "funding_source": "OKX",
     "next_funding_time": 1790928000000,
-    "open_interest": 2829441.010000001,
+    "open_interest": 2828362.620000001,
     "oi_source": "OKX",
-    "open_interest_contracts": 2829441.010000001,
-    "volume_24h": 7637888.27,
-    "turnover_24h": 7637888.27,
-    "price_change_24h_pct": -0.3814205797592836,
-    "high_24h": 119.57,
-    "low_24h": 116.62,
-    "market_24h_source": "OKX",
-    "price_change_5m_pct": -0.05102474700229804,
-    "oi_change_5m_pct": 0.04250454261488526,
-    "leverage_risk_state": "POSITION_BUILDUP_DOWN",
+    "open_interest_contracts": 2828362.620000001,
+    "volume_24h": null,
+    "turnover_24h": null,
+    "price_change_24h_pct": null,
+    "high_24h": null,
+    "low_24h": null,
+    "market_24h_source": null,
+    "price_change_5m_pct": 0.3403386369437639,
+    "oi_change_5m_pct": -0.038113181939076014,
+    "leverage_risk_state": "SHORT_COVERING_CANDIDATE",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
     "total_liquidation_usd": null,
@@ -43,8 +43,8 @@
       "valid_fields": 5,
       "completeness": 1,
       "completeness_pct": 100,
-      "actual_price_available": true,
-      "price_proxy_used": false
+      "actual_price_available": false,
+      "price_proxy_used": true
     },
     "diagnostics": [
       {
@@ -85,9 +85,9 @@
       },
       {
         "source": "OKX ticker",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"msg\":\"Too Many Requests\",\"code\":\"50011\"}"
       },
       {
         "source": "OKX mark",
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
       }
     ]
   }
