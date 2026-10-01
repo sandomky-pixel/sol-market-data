@@ -1,12 +1,12 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-01T03:10:10.943Z",
+  "updated_at": "2026-10-01T03:25:11.250Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790824210943,
-    "timestamp_iso": "2026-10-01T03:10:10.943Z",
-    "price": 118,
+    "timestamp": 1790825111250,
+    "timestamp_iso": "2026-10-01T03:25:11.250Z",
+    "price": 117.9,
     "price_source": "Coinbase SOL-USD Fallback",
     "mark_price": null,
     "mark_price_source": null,
@@ -33,36 +33,44 @@
       {
         "source": "Bybit ticker",
         "ok": false,
-        "error": "HTTP 403: https://api.bybit.com/v5/market/tickers?category=linear&symbol=SOLUSDT :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "status": 403,
+        "error": "HTTP 403: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
         "source": "Bybit funding",
         "ok": false,
-        "error": "HTTP 403: https://api.bybit.com/v5/market/funding/history?category=linear&symbol=SOLUSDT&limit=1 :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "status": 403,
+        "error": "HTTP 403: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
         "source": "Bybit OI",
         "ok": false,
-        "error": "HTTP 403: https://api.bybit.com/v5/market/open-interest?category=linear&symbol=SOLUSDT&intervalTime=5min&limit=1 :: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
+        "status": 403,
+        "error": "HTTP 403: {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"
       },
       {
         "source": "Binance premiumIndex",
         "ok": false,
-        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/premiumIndex?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "status": 403,
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
       },
       {
         "source": "Binance OI",
         "ok": false,
-        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/openInterest?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "status": 403,
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
       },
       {
         "source": "Binance ticker",
         "ok": false,
-        "error": "HTTP 403: https://fapi.binance.com/fapi/v1/ticker/24hr?symbol=SOLUSDT :: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
+        "status": 403,
+        "error": "HTTP 403: <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n<HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\">\n<TITLE>ERROR: The request could not be satisfied</TITLE>\n</HEAD><BODY>\n<H1>403 ERROR</H1>\n<H2>The request could "
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": true
+        "ok": true,
+        "status": 200,
+        "error": null
       }
     ]
   }
