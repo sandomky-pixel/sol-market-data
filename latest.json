@@ -1,33 +1,33 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-02T12:41:09.202Z",
+  "updated_at": "2026-10-02T12:46:10.395Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790944869202,
-    "timestamp_iso": "2026-10-02T12:41:09.202Z",
-    "price": 122.06,
-    "price_source": "OKX mark price proxy",
-    "price_is_proxy": true,
-    "price_proxy_type": "mark_price",
-    "mark_price": 122.06,
+    "timestamp": 1790945170395,
+    "timestamp_iso": "2026-10-02T12:46:10.395Z",
+    "price": 122.04,
+    "price_source": "Coinbase SOL-USD",
+    "price_is_proxy": false,
+    "price_proxy_type": null,
+    "mark_price": 122.02,
     "mark_price_source": "OKX",
-    "index_price": 122.14,
+    "index_price": 122.06,
     "index_price_source": "OKX",
     "funding_rate": 0.0001,
     "funding_source": "OKX",
     "next_funding_time": 1790985600000,
-    "open_interest": 3046367.540000001,
+    "open_interest": 3048897.040000001,
     "oi_source": "OKX",
-    "open_interest_contracts": 3046367.540000001,
+    "open_interest_contracts": 3048897.040000001,
     "volume_24h": null,
     "turnover_24h": null,
     "price_change_24h_pct": null,
     "high_24h": null,
     "low_24h": null,
     "market_24h_source": null,
-    "price_change_5m_pct": -0.06549860815457532,
-    "oi_change_5m_pct": 0.179506857308357,
+    "price_change_5m_pct": -0.016385384237257106,
+    "oi_change_5m_pct": 0.08303331645924769,
     "leverage_risk_state": "POSITION_BUILDUP_DOWN",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
@@ -43,8 +43,8 @@
       "valid_fields": 5,
       "completeness": 1,
       "completeness_pct": 100,
-      "actual_price_available": false,
-      "price_proxy_used": true
+      "actual_price_available": true,
+      "price_proxy_used": false
     },
     "diagnostics": [
       {
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
+        "ok": true,
+        "status": 200,
+        "error": null
       }
     ]
   }
