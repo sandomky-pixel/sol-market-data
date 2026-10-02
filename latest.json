@@ -1,15 +1,15 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-02T07:31:24.446Z",
+  "updated_at": "2026-10-02T07:36:02.755Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1790926284446,
-    "timestamp_iso": "2026-10-02T07:31:24.446Z",
+    "timestamp": 1790926562755,
+    "timestamp_iso": "2026-10-02T07:36:02.755Z",
     "price": 121.13,
-    "price_source": "OKX mark price proxy",
-    "price_is_proxy": true,
-    "price_proxy_type": "mark_price",
+    "price_source": "Coinbase SOL-USD",
+    "price_is_proxy": false,
+    "price_proxy_type": null,
     "mark_price": 121.13,
     "mark_price_source": "OKX",
     "index_price": 121.15,
@@ -17,18 +17,18 @@
     "funding_rate": 0.0001,
     "funding_source": "OKX",
     "next_funding_time": 1790956800000,
-    "open_interest": 3027987.6799999997,
+    "open_interest": 3028415.9299999997,
     "oi_source": "OKX",
-    "open_interest_contracts": 3027987.6799999997,
+    "open_interest_contracts": 3028415.9299999997,
     "volume_24h": null,
     "turnover_24h": null,
     "price_change_24h_pct": null,
     "high_24h": null,
     "low_24h": null,
     "market_24h_source": null,
-    "price_change_5m_pct": -0.04950903539896219,
-    "oi_change_5m_pct": -0.3079482886663849,
-    "leverage_risk_state": "LONG_UNWIND_CANDIDATE",
+    "price_change_5m_pct": 0,
+    "oi_change_5m_pct": 0.014143056222738662,
+    "leverage_risk_state": "NEUTRAL",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
     "total_liquidation_usd": null,
@@ -43,8 +43,8 @@
       "valid_fields": 5,
       "completeness": 1,
       "completeness_pct": 100,
-      "actual_price_available": false,
-      "price_proxy_used": true
+      "actual_price_available": true,
+      "price_proxy_used": false
     },
     "diagnostics": [
       {
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
+        "ok": true,
+        "status": 200,
+        "error": null
       }
     ]
   }
