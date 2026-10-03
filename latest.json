@@ -1,11 +1,11 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-03T04:35:58.639Z",
+  "updated_at": "2026-10-03T04:40:58.018Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1791002158639,
-    "timestamp_iso": "2026-10-03T04:35:58.639Z",
+    "timestamp": 1791002458018,
+    "timestamp_iso": "2026-10-03T04:40:58.018Z",
     "price": 118.93,
     "price_source": "OKX",
     "price_is_proxy": false,
@@ -14,21 +14,21 @@
     "mark_price_source": "OKX",
     "index_price": 118.99,
     "index_price_source": "OKX",
-    "funding_rate": 0.0000121543382208,
+    "funding_rate": 0.0000131526407679,
     "funding_source": "OKX",
     "next_funding_time": 1791043200000,
-    "open_interest": 2965226.520000001,
+    "open_interest": 2966755.5100000007,
     "oi_source": "OKX",
-    "open_interest_contracts": 2965226.520000001,
-    "volume_24h": 10799073.33,
-    "turnover_24h": 10799073.33,
-    "price_change_24h_pct": -2.540358928132422,
+    "open_interest_contracts": 2966755.5100000007,
+    "volume_24h": 10719601.5,
+    "turnover_24h": 10719601.5,
+    "price_change_24h_pct": -2.683904754111764,
     "high_24h": 123.76,
     "low_24h": 117.03,
     "market_24h_source": "OKX",
-    "price_change_5m_pct": -0.01681378730558724,
-    "oi_change_5m_pct": -0.05862487330913892,
-    "leverage_risk_state": "LONG_UNWIND_CANDIDATE",
+    "price_change_5m_pct": 0,
+    "oi_change_5m_pct": 0.05156402014102306,
+    "leverage_risk_state": "NEUTRAL",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
     "total_liquidation_usd": null,
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
       }
     ]
   }
