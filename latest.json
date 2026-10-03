@@ -1,33 +1,33 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-03T23:31:04.467Z",
+  "updated_at": "2026-10-03T23:35:55.733Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1791070264467,
-    "timestamp_iso": "2026-10-03T23:31:04.467Z",
+    "timestamp": 1791070555733,
+    "timestamp_iso": "2026-10-03T23:35:55.733Z",
     "price": 119.69,
-    "price_source": "OKX",
+    "price_source": "Coinbase SOL-USD",
     "price_is_proxy": false,
     "price_proxy_type": null,
-    "mark_price": 119.69,
+    "mark_price": 119.63,
     "mark_price_source": "OKX",
-    "index_price": 119.77,
+    "index_price": 119.71,
     "index_price_source": "OKX",
-    "funding_rate": -0.0000051874034308,
+    "funding_rate": -0.0000063900582598,
     "funding_source": "OKX",
     "next_funding_time": 1791100800000,
-    "open_interest": 2962584.470000003,
+    "open_interest": 2962530.230000003,
     "oi_source": "OKX",
-    "open_interest_contracts": 2962584.470000003,
-    "volume_24h": 2916509.22,
-    "turnover_24h": 2916509.22,
-    "price_change_24h_pct": 1.0127436914507577,
-    "high_24h": 120.04,
-    "low_24h": 118.43,
-    "market_24h_source": "OKX",
+    "open_interest_contracts": 2962530.230000003,
+    "volume_24h": null,
+    "turnover_24h": null,
+    "price_change_24h_pct": null,
+    "high_24h": null,
+    "low_24h": null,
+    "market_24h_source": null,
     "price_change_5m_pct": 0,
-    "oi_change_5m_pct": -0.02101068158226683,
+    "oi_change_5m_pct": -0.0018308338732439065,
     "leverage_risk_state": "NEUTRAL",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
@@ -85,9 +85,9 @@
       },
       {
         "source": "OKX ticker",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"msg\":\"Too Many Requests\",\"code\":\"50011\"}"
       },
       {
         "source": "OKX mark",
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
+        "ok": true,
+        "status": 200,
+        "error": null
       }
     ]
   }
