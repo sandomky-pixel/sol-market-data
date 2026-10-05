@@ -1,34 +1,34 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-05T01:40:57.826Z",
+  "updated_at": "2026-10-05T01:45:58.573Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1791164457826,
-    "timestamp_iso": "2026-10-05T01:40:57.826Z",
-    "price": 121.15,
-    "price_source": "Coinbase SOL-USD",
+    "timestamp": 1791164758573,
+    "timestamp_iso": "2026-10-05T01:45:58.573Z",
+    "price": 121.01,
+    "price_source": "OKX",
     "price_is_proxy": false,
     "price_proxy_type": null,
-    "mark_price": 121.1,
+    "mark_price": 121,
     "mark_price_source": "OKX",
-    "index_price": 121.16,
+    "index_price": 121.06,
     "index_price_source": "OKX",
     "funding_rate": 0.0001,
     "funding_source": "OKX",
     "next_funding_time": 1791216000000,
-    "open_interest": 3155049.500000003,
+    "open_interest": 3155035.870000003,
     "oi_source": "OKX",
-    "open_interest_contracts": 3155049.500000003,
-    "volume_24h": null,
-    "turnover_24h": null,
-    "price_change_24h_pct": null,
-    "high_24h": null,
-    "low_24h": null,
-    "market_24h_source": null,
-    "price_change_5m_pct": 0.09087904824851241,
-    "oi_change_5m_pct": 0.015137077280656441,
-    "leverage_risk_state": "LONG_BUILDUP",
+    "open_interest_contracts": 3155035.870000003,
+    "volume_24h": 5051648.88,
+    "turnover_24h": 5051648.88,
+    "price_change_24h_pct": 0.8752917639213166,
+    "high_24h": 122.25,
+    "low_24h": 119.89,
+    "market_24h_source": "OKX",
+    "price_change_5m_pct": -0.11555922410235292,
+    "oi_change_5m_pct": -0.0004320059003793199,
+    "leverage_risk_state": "LONG_UNWIND_CANDIDATE",
     "long_liquidation_usd": null,
     "short_liquidation_usd": null,
     "total_liquidation_usd": null,
@@ -85,9 +85,9 @@
       },
       {
         "source": "OKX ticker",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"msg\":\"Too Many Requests\",\"code\":\"50011\"}"
+        "ok": true,
+        "status": 200,
+        "error": null
       },
       {
         "source": "OKX mark",
@@ -115,9 +115,9 @@
       },
       {
         "source": "Coinbase SOL-USD",
-        "ok": true,
-        "status": 200,
-        "error": null
+        "ok": false,
+        "status": 429,
+        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
       }
     ]
   }
