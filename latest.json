@@ -1,263 +1,263 @@
 {
   "ok": true,
   "mode": "github_mirror",
-  "updated_at": "2026-10-05T22:55:57.849Z",
+  "updated_at": "2026-10-05T23:01:21.323Z",
   "data": {
     "symbol": "SOLUSDT",
-    "timestamp": 1791240957849,
-    "timestamp_iso": "2026-10-05T22:55:57.849Z",
-    "price": 120.9,
-    "price_source": "OKX mark price proxy",
-    "price_is_proxy": true,
-    "price_proxy_type": "mark_price",
-    "mark_price": 120.9,
+    "timestamp": 1791241281323,
+    "timestamp_iso": "2026-10-05T23:01:21.323Z",
+    "price": 121.03,
+    "price_source": "OKX",
+    "price_is_proxy": false,
+    "price_proxy_type": null,
+    "mark_price": 121.02,
     "mark_price_source": "OKX",
-    "index_price": 120.97,
+    "index_price": 121.09,
     "index_price_source": "OKX",
-    "funding_rate": 1.637311423e-7,
+    "funding_rate": 5.312157423e-7,
     "funding_source": "OKX",
     "next_funding_time": 1791273600000,
-    "open_interest": 2899896.410000001,
+    "open_interest": 2900583.7900000014,
     "oi_source": "OKX",
-    "open_interest_contracts": 2899896.410000001,
-    "open_interest_coin": 2899896.410000001,
-    "open_interest_usd": 350655473.89720017,
-    "volume_24h": null,
+    "open_interest_contracts": 2900583.7900000014,
+    "open_interest_coin": 2900583.7900000014,
+    "open_interest_usd": 351028650.2658002,
+    "volume_24h": 7220358.53,
     "turnover_24h": null,
-    "price_change_24h_pct": null,
-    "high_24h": null,
-    "low_24h": null,
-    "market_24h_source": null,
-    "price_change_5m_pct": -0.1651527663088263,
-    "oi_change_5m_pct": 0.12823881623088002,
-    "funding_change_5m": 0.000002383081004,
-    "leverage_risk_state": "POSITION_BUILDUP_DOWN",
+    "price_change_24h_pct": -0.42780748663101276,
+    "high_24h": 122.03,
+    "low_24h": 118.82,
+    "market_24h_source": "OKX",
+    "price_change_5m_pct": 0.10752688172042633,
+    "oi_change_5m_pct": 0.023703605329831547,
+    "funding_change_5m": 3.674846e-7,
+    "leverage_risk_state": "LONG_BUILDUP",
     "upbit": {
       "market": "KRW-SOL",
-      "price_krw": 163400,
-      "change_24h_pct": -0.48721072,
+      "price_krw": 163500,
+      "change_24h_pct": -0.42630938,
       "high_24h_krw": 164700,
       "low_24h_krw": 161500,
-      "volume_24h_sol": 135222.29125538,
-      "turnover_24h_krw": 22086028551.709274,
-      "total_ask_size": 12763.33478285,
-      "total_bid_size": 8664.62465934,
-      "bid_ask_ratio": 0.678868399736924,
-      "bid_depth_share": 0.4043606990537803,
-      "ticker_timestamp": 1791240953398,
-      "orderbook_timestamp": 1791240955589,
+      "volume_24h_sol": 135890.76790146,
+      "turnover_24h_krw": 22195240430.01643,
+      "total_ask_size": 11987.08854855,
+      "total_bid_size": 7906.05578383,
+      "bid_ask_ratio": 0.6595476250808495,
+      "bid_depth_share": 0.3974261510263785,
+      "ticker_timestamp": 1791241274500,
+      "orderbook_timestamp": 1791241280389,
       "top5": [
         {
           "ask_price": 163600,
-          "ask_size": 269.24351764,
-          "bid_price": 163400,
-          "bid_size": 28.97450727
+          "ask_size": 24.03435459,
+          "bid_price": 163500,
+          "bid_size": 225.03842913
         },
         {
           "ask_price": 163700,
-          "ask_size": 1978.70445635,
-          "bid_price": 163300,
-          "bid_size": 884.47912671
+          "ask_size": 333.44943477,
+          "bid_price": 163400,
+          "bid_size": 760.92544814
         },
         {
           "ask_price": 163800,
-          "ask_size": 451.67990031,
-          "bid_price": 163200,
-          "bid_size": 357.70939604
+          "ask_size": 774.52370257,
+          "bid_price": 163300,
+          "bid_size": 531.54730515
         },
         {
           "ask_price": 163900,
-          "ask_size": 87.08428282,
-          "bid_price": 163100,
-          "bid_size": 368.19435935
+          "ask_size": 713.43218641,
+          "bid_price": 163200,
+          "bid_size": 119.45990101
         },
         {
           "ask_price": 164000,
-          "ask_size": 46.75094434,
-          "bid_price": 163000,
-          "bid_size": 421.75219924
+          "ask_size": 265.5920614,
+          "bid_price": 163100,
+          "bid_size": 169.69814195
         }
       ],
       "orderbook_30": [
         {
           "ask_price": 163600,
-          "ask_size": 269.24351764,
-          "bid_price": 163400,
-          "bid_size": 28.97450727
+          "ask_size": 24.03435459,
+          "bid_price": 163500,
+          "bid_size": 225.03842913
         },
         {
           "ask_price": 163700,
-          "ask_size": 1978.70445635,
-          "bid_price": 163300,
-          "bid_size": 884.47912671
+          "ask_size": 333.44943477,
+          "bid_price": 163400,
+          "bid_size": 760.92544814
         },
         {
           "ask_price": 163800,
-          "ask_size": 451.67990031,
-          "bid_price": 163200,
-          "bid_size": 357.70939604
+          "ask_size": 774.52370257,
+          "bid_price": 163300,
+          "bid_size": 531.54730515
         },
         {
           "ask_price": 163900,
-          "ask_size": 87.08428282,
-          "bid_price": 163100,
-          "bid_size": 368.19435935
+          "ask_size": 713.43218641,
+          "bid_price": 163200,
+          "bid_size": 119.45990101
         },
         {
           "ask_price": 164000,
-          "ask_size": 46.75094434,
-          "bid_price": 163000,
-          "bid_size": 421.75219924
+          "ask_size": 265.5920614,
+          "bid_price": 163100,
+          "bid_size": 169.69814195
         },
         {
           "ask_price": 164100,
-          "ask_size": 48.97565583,
-          "bid_price": 162900,
-          "bid_size": 63.54610995
+          "ask_size": 44.25931922,
+          "bid_price": 163000,
+          "bid_size": 473.71007254
         },
         {
           "ask_price": 164200,
-          "ask_size": 264.21076463,
-          "bid_price": 162800,
-          "bid_size": 68.96194905
+          "ask_size": 310.42906476,
+          "bid_price": 162900,
+          "bid_size": 36.19613385
         },
         {
           "ask_price": 164300,
-          "ask_size": 52.37548108,
-          "bid_price": 162700,
-          "bid_size": 137.7575301
+          "ask_size": 54.50573061,
+          "bid_price": 162800,
+          "bid_size": 66.82509111
         },
         {
           "ask_price": 164400,
-          "ask_size": 262.28700216,
+          "ask_size": 212.91571025,
+          "bid_price": 162700,
+          "bid_size": 81.55124861
+        },
+        {
+          "ask_price": 164500,
+          "ask_size": 780.10808421,
           "bid_price": 162600,
           "bid_size": 36.90284586
         },
         {
-          "ask_price": 164500,
-          "ask_size": 829.16808421,
+          "ask_price": 164600,
+          "ask_size": 271.46998557,
           "bid_price": 162500,
           "bid_size": 78.77675676
         },
         {
-          "ask_price": 164600,
-          "ask_size": 271.27058357,
-          "bid_price": 162400,
-          "bid_size": 32.14783246
-        },
-        {
           "ask_price": 164700,
           "ask_size": 554.59943277,
+          "bid_price": 162400,
+          "bid_size": 31.62165046
+        },
+        {
+          "ask_price": 164800,
+          "ask_size": 162.55819499,
           "bid_price": 162300,
           "bid_size": 45.97937517
         },
         {
-          "ask_price": 164800,
-          "ask_size": 161.55819499,
+          "ask_price": 164900,
+          "ask_size": 220.08971131,
           "bid_price": 162200,
           "bid_size": 52.16417511
         },
         {
-          "ask_price": 164900,
-          "ask_size": 220.13222031,
+          "ask_price": 165000,
+          "ask_size": 797.63217893,
           "bid_price": 162100,
           "bid_size": 314.39421718
         },
         {
-          "ask_price": 165000,
-          "ask_size": 798.86674683,
-          "bid_price": 162000,
-          "bid_size": 52.82595267
-        },
-        {
           "ask_price": 165100,
           "ask_size": 129.76929328,
-          "bid_price": 161900,
-          "bid_size": 12.19018091
+          "bid_price": 162000,
+          "bid_size": 53.82595267
         },
         {
           "ask_price": 165200,
           "ask_size": 442.1424917,
-          "bid_price": 161800,
-          "bid_size": 219.13749104
+          "bid_price": 161900,
+          "bid_size": 12.19018091
         },
         {
           "ask_price": 165300,
           "ask_size": 140.03308212,
-          "bid_price": 161700,
-          "bid_size": 38.88743312
+          "bid_price": 161800,
+          "bid_size": 220.05080304
         },
         {
           "ask_price": 165400,
           "ask_size": 810.61989797,
+          "bid_price": 161700,
+          "bid_size": 38.88743312
+        },
+        {
+          "ask_price": 165500,
+          "ask_size": 1382.02405218,
           "bid_price": 161600,
           "bid_size": 746.89518081
         },
         {
-          "ask_price": 165500,
-          "ask_size": 1381.02405218,
-          "bid_price": 161500,
-          "bid_size": 369.87762512
-        },
-        {
           "ask_price": 165600,
           "ask_size": 158.89834012,
-          "bid_price": 161400,
-          "bid_size": 1758.00432739
+          "bid_price": 161500,
+          "bid_size": 370.87762512
         },
         {
           "ask_price": 165700,
           "ask_size": 296.13574807,
-          "bid_price": 161300,
-          "bid_size": 98.9506908
+          "bid_price": 161400,
+          "bid_size": 1758.00432739
         },
         {
           "ask_price": 165800,
-          "ask_size": 368.4721731,
-          "bid_price": 161200,
-          "bid_size": 106.40840397
+          "ask_size": 368.53405428,
+          "bid_price": 161300,
+          "bid_size": 99.9506908
         },
         {
           "ask_price": 165900,
           "ask_size": 716.46311389,
-          "bid_price": 161100,
-          "bid_size": 204.96460819
+          "bid_price": 161200,
+          "bid_size": 106.40840397
         },
         {
           "ask_price": 166000,
           "ask_size": 827.37679112,
-          "bid_price": 161000,
-          "bid_size": 471.73330789
+          "bid_price": 161100,
+          "bid_size": 180.51457716
         },
         {
           "ask_price": 166100,
           "ask_size": 48.98742538,
+          "bid_price": 161000,
+          "bid_size": 471.73330789
+        },
+        {
+          "ask_price": 166200,
+          "ask_size": 140.78239232,
           "bid_price": 160900,
           "bid_size": 93.40789079
         },
         {
-          "ask_price": 166200,
-          "ask_size": 139.78239232,
+          "ask_price": 166300,
+          "ask_size": 428.2368845,
           "bid_price": 160800,
           "bid_size": 209.84374473
         },
         {
-          "ask_price": 166300,
-          "ask_size": 428.2368845,
-          "bid_price": 160700,
-          "bid_size": 381.15010751
-        },
-        {
           "ask_price": 166400,
-          "ask_size": 260.78953078,
-          "bid_price": 160600,
-          "bid_size": 136.38300324
+          "ask_size": 259.78953078,
+          "bid_price": 160700,
+          "bid_size": 382.29187016
         },
         {
           "ask_price": 166500,
           "ask_size": 317.69629848,
-          "bid_price": 160500,
-          "bid_size": 872.22433091
+          "bid_price": 160600,
+          "bid_size": 136.38300324
         }
       ]
     },
@@ -275,26 +275,14 @@
       "valid_fields": 5,
       "completeness": 1,
       "completeness_pct": 100,
-      "actual_price_available": false,
-      "price_proxy_used": true,
+      "actual_price_available": true,
+      "price_proxy_used": false,
       "upbit_ticker_available": true,
       "upbit_orderbook_available": true
     },
     "diagnostics": [
       {
-        "source": "OKX ticker",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"msg\":\"Too Many Requests\",\"code\":\"50011\"}"
-      },
-      {
         "source": "OKX mark",
-        "ok": true,
-        "status": 200,
-        "error": null
-      },
-      {
-        "source": "OKX OI",
         "ok": true,
         "status": 200,
         "error": null
@@ -306,7 +294,19 @@
         "error": null
       },
       {
+        "source": "OKX OI",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
         "source": "OKX index",
+        "ok": true,
+        "status": 200,
+        "error": null
+      },
+      {
+        "source": "OKX ticker",
         "ok": true,
         "status": 200,
         "error": null
@@ -322,12 +322,6 @@
         "ok": true,
         "status": 200,
         "error": null
-      },
-      {
-        "source": "Coinbase fallback",
-        "ok": false,
-        "status": 429,
-        "error": "HTTP 429: {\"message\":\"Public rate limit exceeded\"}"
       }
     ]
   }
