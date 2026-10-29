@@ -1,0 +1,130 @@
+
+name: Mirror SOL AI signal
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sol-ai-signal-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Mirror only when AI analysis changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import os, json, time, base64, datetime
+          import urllib.request, urllib.error
+
+          source = "https://kraken-sol-test.sandomky.workers.dev/ai-signal"
+          repo = os.environ["GH_REPOSITORY"]
+          url = f"https://api.github.com/repos/{repo}/contents/ai-signal-latest.json"
+
+          headers = {
+              "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+              "Accept": "application/vnd.github+json",
+              "User-Agent": "sol-ai-mirror",
+              "Content-Type": "application/json"
+          }
+
+          def fetch_existing():
+              req = urllib.request.Request(url, headers=headers)
+              try:
+                  with urllib.request.urlopen(req, timeout=20) as r:
+                      obj = json.load(r)
+                  raw = base64.b64decode(obj["content"])
+                  return json.loads(raw), obj["sha"]
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      return None, None
+                  raise
+
+          with urllib.request.urlopen(source, timeout=20) as r:
+              signal = json.load(r)
+
+          analysis = signal.get("analysis") or {}
+          if not (
+              signal.get("ok") is True
+              and signal.get("available") is True
+              and analysis.get("reason") == "HOURLY"
+              and analysis.get("state") == "COMPLETE"
+              and isinstance(analysis.get("result"), dict)
+              and analysis.get("completed_ms") is not None
+          ):
+              raise RuntimeError("INVALID_AI_SIGNAL")
+
+          completed = int(analysis["completed_ms"])
+
+          for attempt in range(3):
+              existing, sha = fetch_existing()
+
+              if existing:
+                  previous = (
+                      existing.get("signal", {})
+                      .get("analysis", {})
+                      .get("completed_ms")
+                  )
+                  if previous is not None and int(previous) == completed:
+                      print("UNCHANGED: commit skipped")
+                      break
+
+              now = int(time.time() * 1000)
+              age = max(0, now - completed)
+
+              payload = {
+                  "ok": True,
+                  "mirror_type": "STAGING_AI_SIGNAL_READ_ONLY",
+                  "source_url": source,
+                  "mirrored_at": datetime.datetime.now(
+                      datetime.timezone.utc
+                  ).isoformat(),
+                  "analysis_age_at_mirror_ms": age,
+                  "stale_at_mirror": age > 7200000,
+                  "signal": signal
+              }
+
+              content = base64.b64encode(
+                  (
+                      json.dumps(
+                          payload,
+                          ensure_ascii=False,
+                          indent=2
+                      ) + "\n"
+                  ).encode()
+              ).decode()
+
+              body = {
+                  "message": "Mirror new completed AI signal",
+                  "content": content,
+                  "branch": "main"
+              }
+              if sha:
+                  body["sha"] = sha
+
+              req = urllib.request.Request(
+                  url,
+                  data=json.dumps(body).encode(),
+                  headers=headers,
+                  method="PUT"
+              )
+
+              try:
+                  with urllib.request.urlopen(req, timeout=20):
+                      print("UPDATED: new AI analysis mirrored")
+                  break
+              except urllib.error.HTTPError as e:
+                  if e.code not in (409, 422) or attempt == 2:
+                      raise
+                  time.sleep(attempt + 2)
+          PY
