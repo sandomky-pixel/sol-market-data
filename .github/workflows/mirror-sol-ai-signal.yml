@@ -50,8 +50,25 @@ jobs:
                       return None, None
                   raise
 
-          with urllib.request.urlopen(source, timeout=20) as r:
-              signal = json.load(r)
+          source_req = urllib.request.Request(
+              source,
+              headers={
+                  "User-Agent": "sol-ai-mirror/1.0",
+                  "Accept": "application/json"
+              }
+          )
+
+          try:
+              with urllib.request.urlopen(source_req, timeout=20) as r:
+                  signal = json.load(r)
+          except urllib.error.HTTPError as e:
+              detail = e.read(500).decode(
+                  "utf-8", errors="replace"
+              )
+              raise RuntimeError(
+                  f"AI_SIGNAL_FETCH_FAILED: HTTP {e.code}, "
+                  f"body={detail}"
+              ) from e
 
           analysis = signal.get("analysis") or {}
           if not (
