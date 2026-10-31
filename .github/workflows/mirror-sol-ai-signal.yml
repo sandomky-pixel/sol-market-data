@@ -3,7 +3,7 @@ name: Mirror SOL AI signal
 
 on:
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -17,19 +17,34 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     timeout-minutes: 3
+
     steps:
-      - name: Mirror only when AI analysis changes
+      - name: Mirror AI signal with freshness validation
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
         run: |
           python3 - <<'PY'
-          import os, json, time, base64, datetime
-          import urllib.request, urllib.error
+          import os
+          import json
+          import time
+          import base64
+          import datetime
+          import urllib.request
+          import urllib.error
 
-          source = "https://kraken-sol-test.sandomky.workers.dev/ai-signal"
+          source = (
+              "https://kraken-sol-test.sandomky."
+              "workers.dev/ai-signal"
+          )
+
           repo = os.environ["GH_REPOSITORY"]
-          url = f"https://api.github.com/repos/{repo}/contents/ai-signal-latest.json"
+          url = (
+              f"https://api.github.com/repos/{repo}"
+              "/contents/ai-signal-latest.json"
+          )
+
+          MAX_AGE_MS = 7200000
 
           headers = {
               "Authorization": "Bearer " + os.environ["GH_TOKEN"],
@@ -39,12 +54,20 @@ jobs:
           }
 
           def fetch_existing():
-              req = urllib.request.Request(url, headers=headers)
+              req = urllib.request.Request(
+                  url,
+                  headers=headers
+              )
+
               try:
-                  with urllib.request.urlopen(req, timeout=20) as r:
+                  with urllib.request.urlopen(
+                      req, timeout=20
+                  ) as r:
                       obj = json.load(r)
+
                   raw = base64.b64decode(obj["content"])
                   return json.loads(raw), obj["sha"]
+
               except urllib.error.HTTPError as e:
                   if e.code == 404:
                       return None, None
@@ -59,18 +82,22 @@ jobs:
           )
 
           try:
-              with urllib.request.urlopen(source_req, timeout=20) as r:
+              with urllib.request.urlopen(
+                  source_req, timeout=20
+              ) as r:
                   signal = json.load(r)
+
           except urllib.error.HTTPError as e:
               detail = e.read(500).decode(
                   "utf-8", errors="replace"
               )
               raise RuntimeError(
-                  f"AI_SIGNAL_FETCH_FAILED: HTTP {e.code}, "
-                  f"body={detail}"
+                  f"AI_SIGNAL_FETCH_FAILED: "
+                  f"HTTP {e.code}, body={detail}"
               ) from e
 
           analysis = signal.get("analysis") or {}
+
           if not (
               signal.get("ok") is True
               and signal.get("available") is True
@@ -82,6 +109,20 @@ jobs:
               raise RuntimeError("INVALID_AI_SIGNAL")
 
           completed = int(analysis["completed_ms"])
+          now = int(time.time() * 1000)
+          age = max(0, now - completed)
+
+          print(
+              f"AI_ANALYSIS_AGE_MS={age}",
+              flush=True
+          )
+
+          if age > MAX_AGE_MS:
+              raise RuntimeError(
+                  f"STALE_AI_ANALYSIS: "
+                  f"completed_ms={completed}, "
+                  f"age_ms={age}"
+              )
 
           for attempt in range(3):
               existing, sha = fetch_existing()
@@ -92,22 +133,31 @@ jobs:
                       .get("analysis", {})
                       .get("completed_ms")
                   )
-                  if previous is not None and int(previous) == completed:
-                      print("UNCHANGED: commit skipped")
-                      break
 
-              now = int(time.time() * 1000)
-              age = max(0, now - completed)
+                  if (
+                      previous is not None
+                      and int(previous) == completed
+                  ):
+                      print(
+                          "UNCHANGED: commit skipped; "
+                          f"analysis_age_ms={age}",
+                          flush=True
+                      )
+                      break
 
               payload = {
                   "ok": True,
-                  "mirror_type": "STAGING_AI_SIGNAL_READ_ONLY",
+                  "mirror_type": (
+                      "STAGING_AI_SIGNAL_READ_ONLY"
+                  ),
                   "source_url": source,
-                  "mirrored_at": datetime.datetime.now(
-                      datetime.timezone.utc
-                  ).isoformat(),
+                  "mirrored_at": (
+                      datetime.datetime.now(
+                          datetime.timezone.utc
+                      ).isoformat()
+                  ),
                   "analysis_age_at_mirror_ms": age,
-                  "stale_at_mirror": age > 7200000,
+                  "stale_at_mirror": False,
                   "signal": signal
               }
 
@@ -122,10 +172,13 @@ jobs:
               ).decode()
 
               body = {
-                  "message": "Mirror new completed AI signal",
+                  "message": (
+                      "Mirror new completed AI signal"
+                  ),
                   "content": content,
                   "branch": "main"
               }
+
               if sha:
                   body["sha"] = sha
 
@@ -137,11 +190,21 @@ jobs:
               )
 
               try:
-                  with urllib.request.urlopen(req, timeout=20):
-                      print("UPDATED: new AI analysis mirrored")
+                  with urllib.request.urlopen(
+                      req, timeout=20
+                  ):
+                      print(
+                          "UPDATED: new AI analysis mirrored",
+                          flush=True
+                      )
                   break
+
               except urllib.error.HTTPError as e:
-                  if e.code not in (409, 422) or attempt == 2:
+                  if (
+                      e.code not in (409, 422)
+                      or attempt == 2
+                  ):
                       raise
+
                   time.sleep(attempt + 2)
           PY
