@@ -1,0 +1,39 @@
+name: Mirror SOL history to GitHub
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'incremental or backfill'
+        required: true
+        default: incremental
+        type: choice
+        options: [incremental, backfill]
+permissions:
+  contents: write
+concurrency:
+  group: sol-history-mirror
+  cancel-in-progress: false
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror historical D1 rows
+        env:
+          HISTORY_READ_TOKEN: ${{ secrets.HISTORY_READ_TOKEN }}
+          MIRROR_MODE: ${{ inputs.mode || 'incremental' }}
+        run: |
+          test -n "$HISTORY_READ_TOKEN" || { echo 'Missing HISTORY_READ_TOKEN repository secret'; exit 1; }
+          python3 scripts/mirror_history.py
+      - name: Commit only changed history files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add history/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update SOL historical market and DOA snapshots'
+            git push
+          fi
