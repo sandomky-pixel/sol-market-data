@@ -1,75 +1,101 @@
-import os, json, urllib.request, urllib.parse, urllib.error, pathlib, datetime
+import datetime as dt
+import json
+import os
+import pathlib
+import random
+import socket
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import http.client
 
 BASE = 'https://billowing-voice-0907.sandomky.workers.dev'
 TOKEN = os.environ['HISTORY_READ_TOKEN']
 ROOT = pathlib.Path('history')
 SOURCES = {'market': 'timestamp', 'doa_snapshots': 'collected_ms'}
+PAGE_SIZE = 50
+MAX_ATTEMPTS = 6
+UTC = dt.timezone.utc
+
 
 def fetch(source, start, end):
-    cursor = None
-    result = []
-    seen = set()
+    cursor, result, seen = None, [], set()
+    date = dt.datetime.fromtimestamp(start / 1000, UTC).date().isoformat()
     while True:
-        q = {'source': source, 'from': str(start), 'to': str(end), 'limit': '200'}
+        q = {'source': source, 'from': str(start), 'to': str(end), 'limit': str(PAGE_SIZE)}
         if cursor:
             q['cursor'] = cursor
-        url = BASE + '/history/data?' + urllib.parse.urlencode(q)
-        req = urllib.request.Request(url, headers={
+        req = urllib.request.Request(BASE + '/history/data?' + urllib.parse.urlencode(q), headers={
             'Authorization': 'Bearer ' + TOKEN,
             'Accept': 'application/json',
-            'User-Agent': 'SOL-History-Mirror/1.1',
+            'User-Agent': 'SOL-History-Mirror/1.2',
         })
-        try:
-            with urllib.request.urlopen(req, timeout=45) as resp:
-                body = json.load(resp)
-        except urllib.error.HTTPError as exc:
-            # Do not print request headers, Authorization, token, or full response body.
-            safe_headers = ['content-type', 'server', 'cf-ray', 'cf-mitigated', 'www-authenticate', 'location']
-            info = {k: exc.headers.get(k) for k in safe_headers if exc.headers.get(k)}
-            print(json.dumps({'error': 'HISTORY_HTTP_ERROR', 'status': exc.code,
-                'source': source, 'date_utc': datetime.datetime.fromtimestamp(start / 1000, datetime.timezone.utc).date().isoformat(),
-                'headers': info}, ensure_ascii=False), flush=True)
-            raise SystemExit(1)
-        except urllib.error.URLError as exc:
-            print(json.dumps({'error': 'HISTORY_NETWORK_ERROR', 'source': source,
-                'reason_type': type(exc.reason).__name__}, ensure_ascii=False), flush=True)
-            raise SystemExit(1)
-        if not body.get('ok') or body.get('source') != source:
-            raise RuntimeError('Invalid history response')
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=40) as resp:
+                    body = json.load(resp)
+                if not isinstance(body, dict) or not body.get('ok') or body.get('source') != source or not isinstance(body.get('rows'), list):
+                    raise RuntimeError('Invalid history response')
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code not in (408, 429, 500, 502, 503, 504):
+                    raise RuntimeError(f'Non-retryable HTTP {exc.code} source={source} date={date}') from None
+                reason = f'HTTP {exc.code}'
+            except (urllib.error.URLError, ConnectionResetError, TimeoutError, socket.timeout,
+                    http.client.IncompleteRead, http.client.RemoteDisconnected, OSError) as exc:
+                reason = type(exc).__name__
+            if attempt == MAX_ATTEMPTS:
+                raise RuntimeError(f'History request failed after {MAX_ATTEMPTS} attempts: source={source} date={date} page={len(seen)+1} reason={reason}')
+            delay = min(2 ** (attempt - 1), 20) + random.uniform(0, 1)
+            print(json.dumps({'retry': attempt, 'source': source, 'date': date, 'page': len(seen)+1,
+                              'reason': reason, 'wait_seconds': round(delay, 1)}), flush=True)
+            time.sleep(delay)
         result.extend(body['rows'])
         if not body.get('has_more'):
             break
         nxt = body.get('next_cursor')
         if not nxt or nxt in seen:
-            raise RuntimeError('Cursor pagination stalled')
+            raise RuntimeError(f'Cursor stalled source={source} date={date}')
         seen.add(nxt)
         cursor = nxt
-        if len(seen) > 2000:
-            raise RuntimeError('Excessive pages')
+        if len(seen) > 10000:
+            raise RuntimeError(f'Excessive pages source={source} date={date}')
     return result
+
+
+def parse_day(s):
+    return dt.date.fromisoformat(s)
+
 
 def main():
     mode = os.getenv('MIRROR_MODE', 'incremental')
-    now = datetime.datetime.now(datetime.timezone.utc)
-    first = datetime.date(2026, 10, 1) if mode == 'backfill' else (now - datetime.timedelta(days=2)).date()
-    last = now.date()
+    if mode not in ('incremental', 'backfill'):
+        raise ValueError('Invalid MIRROR_MODE')
+    today = dt.datetime.now(UTC).date()
+    start = parse_day(os.environ['HISTORY_START_DATE']) if os.getenv('HISTORY_START_DATE') else (dt.date(2026, 10, 1) if mode == 'backfill' else today - dt.timedelta(days=2))
+    last = parse_day(os.environ['HISTORY_END_DATE']) if os.getenv('HISTORY_END_DATE') else today
+    if start > last or last > today:
+        raise ValueError('Invalid date range')
     summary = {}
     for source, tc in SOURCES.items():
-        day = first
+        day = start
         while day <= last:
-            start = int(datetime.datetime.combine(day, datetime.time(), datetime.timezone.utc).timestamp() * 1000)
-            end = start + 86400000
-            rows = fetch(source, start, end)
+            ts = int(dt.datetime.combine(day, dt.time(), UTC).timestamp() * 1000)
+            rows = fetch(source, ts, ts + 86400000)
             path = ROOT / source / (day.isoformat() + '.json')
             if rows:
                 path.parent.mkdir(parents=True, exist_ok=True)
-                data = {'source': source, 'date_utc': day.isoformat(), 'time_column': tc, 'count': len(rows), 'rows': rows}
+                data = {'source': source, 'date_utc': day.isoformat(), 'time_column': tc,
+                        'count': len(rows), 'rows': rows}
                 serialized = json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n'
-                if not path.exists() or path.read_text() != serialized:
-                    path.write_text(serialized)
+                if not path.exists() or path.read_text(encoding='utf-8') != serialized:
+                    path.write_text(serialized, encoding='utf-8')
                 summary[str(path)] = len(rows)
-            day += datetime.timedelta(days=1)
-    print(json.dumps({'mode': mode, 'files': summary}, ensure_ascii=False))
+            print(json.dumps({'source': source, 'date': day.isoformat(), 'rows': len(rows)}, ensure_ascii=False), flush=True)
+            day += dt.timedelta(days=1)
+    print(json.dumps({'mode': mode, 'files': summary}, ensure_ascii=False), flush=True)
+
 
 if __name__ == '__main__':
     main()
